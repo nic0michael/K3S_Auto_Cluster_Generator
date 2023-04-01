@@ -1,0 +1,137 @@
+#######################
+# Primary Master Node #
+#######################
+ssh nickm@10.154.2.89
+sudo su -
+
+# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
+chmod 775 DeleteWorkerNode.sh
+./DeleteWorkerNode.sh
+
+# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND
+chmod 775 DeleteMasterNode.sh
+./DeleteMasterNode.sh
+
+# Make this script executable
+chmod 775 Primary-Master-Node-ip-89.sh
+
+# Run this script now
+./Primary-Master-Node-ip-89.sh
+
+# Get the Primary Master Node Token in this file
+cat /var/lib/rancher/k3s/server/node-token
+
+# Update the config.yaml file set the Primary Master Node node-token
+nano config.yaml
+
+# Now run the auto_generate_k3s_cluster_scripts.pyz script again
+./auto_generate_k3s_cluster_scripts.pyz
+
+# Now reopen this file: K3S_Auto_Cluster_Generator_Schedule.txt
+
+
+#######################
+# Second Master Node #
+#######################
+ssh nickm@10.154.2.88
+sudo su -
+
+# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
+chmod 775 DeleteWorkerNode.sh
+./DeleteWorkerNode.sh
+
+# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND
+chmod 775 DeleteMasterNode.sh
+./DeleteMasterNode.sh
+
+Make this script executable
+chmod 775 Second-Master-Node-ip-88.sh
+
+Run this script now
+./Second-Master-Node-ip-88.sh
+
+
+#######################
+# Third Master Node #
+#######################
+ssh nickm@10.154.2.4
+sudo su -
+
+# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
+chmod 775 DeleteWorkerNode.sh
+./DeleteWorkerNode.sh
+
+# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND
+chmod 775 DeleteMasterNode.sh
+./DeleteMasterNode.sh
+
+Make this script executable
+chmod 775 Third-Master-Node-ip-4.sh
+
+Run this script now
+./Third-Master-Node-ip-4.sh
+
+
+#######################
+# First Worker Node #
+#######################
+ssh nickm@10.154.2.93
+sudo su -
+
+# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
+chmod 775 DeleteWorkerNode.sh
+./DeleteWorkerNode.sh
+
+# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND
+chmod 775 DeleteMasterNode.sh
+./DeleteMasterNode.sh
+
+Make this script executable
+chmod 775 First-Worker-Node-ip-93.sh
+
+Run this script now
+./First-Worker-Node-ip-93.sh
+
+
+#######################
+# Second Worker Node #
+#######################
+ssh nickm@10.154.2.95
+sudo su -
+
+# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
+chmod 775 DeleteWorkerNode.sh
+./DeleteWorkerNode.sh
+
+# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND
+chmod 775 DeleteMasterNode.sh
+./DeleteMasterNode.sh
+
+Make this script executable
+chmod 775 Second-Worker-Node-ip-95.sh
+
+Run this script now
+./Second-Worker-Node-ip-95.sh
+
+
+#######################
+# Third Worker Node #
+#######################
+ssh nickm@10.154.2.97
+sudo su -
+
+# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
+chmod 775 DeleteWorkerNode.sh
+./DeleteWorkerNode.sh
+
+# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND
+chmod 775 DeleteMasterNode.sh
+./DeleteMasterNode.sh
+
+Make this script executable
+chmod 775 Third-Worker-Node-ip-97.sh
+
+Run this script now
+./Third-Worker-Node-ip-97.sh
+
+

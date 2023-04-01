@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+
+import yaml
+
+def generateDeleteWorkerNodeScript():
+    script="DeleteWorkerNode.sh"
+    with open(script, "w") as f:
+        f.write("#! /bin/bash\n")
+        f.write("# " + str(script) + "\n")
+        f.write("#\n")
+        f.write("/usr/local/bin/k3s-killall.sh" + "\n")
+        f.write("/usr/local/bin/k3s-agent-uninstall.sh" + "\n")
+        
+def generateDeleteMasterNodeScript():
+    script="DeleteMasterNode.sh"
+    with open(script, "w") as f:
+        f.write("#! /bin/bash\n")
+        f.write("# " + str(script) + "\n")
+        f.write("#\n")
+        f.write("/usr/local/bin/k3s-killall.sh" + "\n")
+        f.write("/usr/local/bin/k3s-uninstall.sh" + "\n")   
+        
+def generatePrimaryMasterNodeScriptPrimary(nickname, ipAddress, fqdn, userId, script, k3sToken):
+    print("generatePrimaryMasterNodeScriptPrimary called  script: "+script)
+    with open(script, "w") as f:
+        f.write("#! /bin/bash\n")  
+        f.write("# " + str(script) + "\n")
+        f.write("#######################\n")
+        f.write("# " + nickname + " #\n")
+        f.write("#######################\n")
+        f.write("# IP Address: " + ipAddress + "\n")
+        f.write("# FQDN: " + fqdn + "\n")
+        f.write("# User ID: " + userId + "\n")
+        f.write("# K3s Token: " + k3sToken + "\n")
+        f.write("# \n")                
+        f.write('node_name="' + fqdn + '"\n')
+        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init\n')
+
+def generateOtherMasterNodeScript(nickname, ipAddress, primaryMasterNodeIpAddress, fqdn, userId, script, k3sToken):
+    print("generateOtherMasterNodeScript called  script: "+script)
+    with open(script, "w") as f:
+        f.write("#! /bin/bash\n") 
+        f.write("# " + str(script) + "\n")
+        f.write("#######################\n")
+        f.write("# " + str(nickname) + " #\n")
+        f.write("#######################\n")
+        f.write("# IP Address: " + str(ipAddress) + "\n")
+        f.write("# FQDN: " + str(fqdn) + "\n")
+        f.write("# User ID: " + str(userId) + "\n")
+        f.write("# Primary Master Node IP Address: " + str(primaryMasterNodeIpAddress) + "\n")
+        f.write("# K3s Token: " + str(k3sToken) + "\n")
+        f.write("# \n")                
+        f.write('k3s_token="' + str(k3sToken) + '"\n')
+        f.write('k3s_url="https://' + str(primaryMasterNodeIpAddress) + ':6443"\n')
+        f.write('node_name="' + str(fqdn) + '"\n')
+        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url}\n\n')
+        
+def generateWorkerNodeScript(nickname, ipAddress, primaryMasterNodeIpAddress, fqdn, userId, script, k3sToken):
+    print("generateWorkerNodeScript called  script: "+script)
+    with open(script, "w") as f:
+        f.write("#! /bin/bash\n")  
+        f.write("# " + str(script) + "\n")
+        f.write("#######################\n")
+        f.write("# " + str(nickname) + " #\n")
+        f.write("#######################\n")
+        f.write("# IP Address: " + str(ipAddress) + "\n")
+        f.write("# FQDN: " + str(fqdn) + "\n")
+        f.write("# User ID: " + str(userId) + "\n")
+        f.write("# Primary Master Node IP Address: " + str(primaryMasterNodeIpAddress) + "\n")
+        f.write("# \n")                
+        f.write('k3s_token="' + str(k3sToken) + '"\n')
+        f.write('k3s_url="https://' + str(primaryMasterNodeIpAddress) + ':6443"\n')
+        f.write('node_name="' + str(fqdn) + '"\n')
+        f.write('curl -sfL https://get.k3s.io | K3S_URL=${k3s_url} K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -')
+
+generateDeleteMasterNodeScript()
+generateDeleteWorkerNodeScript()
+
+# Read the AllNodes.yaml file
+with open("config.yaml", "r") as f:
+    nodes = yaml.safe_load(f)
+
+# Generate the target file
+with open(nodes["targetFile"], "w") as f:
+    # Primary Master Node
+    f.write("#######################\n")
+    f.write("# " + nodes["primaryNode"]["nickname"] + " #\n")
+    f.write("#######################\n")
+    f.write("ssh " + nodes["primaryNode"]["userId"] + "@" + nodes["primaryNode"]["ipAddress"] + "\n")
+    f.write("sudo su -\n")
+
+    f.write("\n# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND\n")
+    f.write("chmod 775 DeleteWorkerNode.sh\n")
+    f.write("./DeleteWorkerNode.sh\n\n")
+
+    f.write("# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND\n")
+    f.write("chmod 775 DeleteMasterNode.sh\n")
+    f.write("./DeleteMasterNode.sh\n\n")
+
+    f.write("# Make this script executable\n")
+    f.write("chmod 775 " + nodes["primaryNode"]["script"] + "\n\n")
+
+    f.write("# Run this script now\n")
+    f.write("./" + nodes["primaryNode"]["script"] + "\n")
+    f.write("\n")
+    f.write("# Get the Primary Master Node Token in this file\n")
+    f.write("cat /var/lib/rancher/k3s/server/node-token\n\n")
+
+    f.write("# Update the config.yaml file set the Primary Master Node node-token\n")
+    f.write("nano config.yaml\n\n")
+
+    f.write("# Now run the auto_generate_k3s_cluster_scripts.pyz script again\n")
+    f.write("./auto_generate_k3s_cluster_scripts.pyz\n\n")
+
+    f.write("# Now reopen this file: K3S_Auto_Cluster_Generator_Schedule.txt\n\n\n")
+
+    nickname=nodes["primaryNode"]["nickname"]
+    ipAddress=nodes["primaryNode"]["ipAddress"] 
+    fqdn=nodes["primaryNode"]["fqdn"] 
+    userId=nodes["primaryNode"]["userId"]
+    script=nodes["primaryNode"]["script"] 
+    k3sToken=nodes["primaryNode"]["k3sToken"]  
+    generatePrimaryMasterNodeScriptPrimary(nickname, ipAddress, fqdn, userId, script, k3sToken)
+    
+    
+
+    # Other Master Nodes
+    for node in nodes["otherMasterNodes"]:
+        f.write("#######################\n")
+        f.write("# " + node["nickname"] + " #\n")
+        f.write("#######################\n")
+        f.write("ssh " + node["userId"] + "@" + node["ipAddress"] + "\n")
+        f.write("sudo su -\n")
+
+        f.write("\n# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND\n")
+        f.write("chmod 775 DeleteWorkerNode.sh\n")
+        f.write("./DeleteWorkerNode.sh\n")
+
+        f.write("\n# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND\n")
+        f.write("chmod 775 DeleteMasterNode.sh\n")
+        f.write("./DeleteMasterNode.sh\n\n")
+
+        f.write("Make this script executable\n")
+        f.write("chmod 775 " + node["script"] + "\n\n")
+
+        f.write("Run this script now\n")
+        f.write("./" + node["script"] + "\n\n\n")
+
+        primaryMasterNodeIpAddress=nodes["primaryNode"]["ipAddress"]
+        k3sToken2=nodes["primaryNode"]["k3sToken"]  
+        nickname2=node["nickname"]
+        ipAddress2=node["ipAddress"] 
+        fqdn2=node["fqdn"] 
+        userId2=node["userId"]
+        script2=node["script"] 
+        generateOtherMasterNodeScript(nickname2, ipAddress2, primaryMasterNodeIpAddress, fqdn2, userId2, script2, k3sToken2)
+
+    # Worker Nodes
+    for node in nodes["workernodes"]:
+        f.write("#######################\n")
+        f.write("# " + node["nickname"] + " #\n")
+        f.write("#######################\n")
+        f.write("ssh " + node["userId"] + "@" + node["ipAddress"] + "\n")
+        f.write("sudo su -\n")
+
+        f.write("\n# IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND\n")
+        f.write("chmod 775 DeleteWorkerNode.sh\n")
+        f.write("./DeleteWorkerNode.sh\n")
+
+        f.write("\n# IF YOUR SERVER IS A MASTER NODE RUN THIS COMMAND\n")
+        f.write("chmod 775 DeleteMasterNode.sh\n")
+        f.write("./DeleteMasterNode.sh\n\n")
+
+        f.write("Make this script executable\n")
+        f.write("chmod 775 " + node["script"] + "\n\n")
+
+        f.write("Run this script now\n")
+        f.write("./" + node["script"] + "\n\n\n") 
+       
+        primaryMasterNodeIpAddress=nodes["primaryNode"]["ipAddress"]
+        k3sToken3=nodes["primaryNode"]["k3sToken"]  
+        nickname3=node["nickname"]
+        ipAddress3=node["ipAddress"] 
+        fqdn3=node["fqdn"] 
+        userId3=node["userId"]
+        script3=node["script"] 
+        generateWorkerNodeScript(nickname3, ipAddress3, primaryMasterNodeIpAddress, fqdn3, userId3, script3, k3sToken3)
+        
+
+

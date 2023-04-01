@@ -1,0 +1,32 @@
+---
+primaryNode:  
+  nickname: Primary Master Node
+  ipAddress: 10.154.2.89
+  fqdn: upupu.loseyourip.com
+  userId: nickm
+  script: Primary-Master-Node-ip-89.sh 
+  k3sToken: K105db82e39a8ec3a05de569a7a2e4ffdf2fa3c1db21f87fad5b22e764af61d0d96::server:e54cb4ab0d4026b645c8156477ac7220
+otherMasterNodes:
+- nickname: dummynickname
+  ipAddress: dummyipAddress
+  fqdn: dummyfqdn
+  userId: dummyuserId
+  script: dummyscript
+
+workernodes:
+- nickname: First Worker Node
+  ipAddress: 10.154.2.93
+  fqdn: kudu.loseyourip.com
+  userId: nickm
+  script: First-Worker-Node-ip-93.sh  
+- nickname: Second Worker Node
+  ipAddress: 10.154.2.95
+  fqdn: leopard.loseyourip.com
+  userId: nickm
+  script: Second-Worker-Node-ip-95.sh  
+- nickname: Third Worker Node
+  ipAddress: 10.154.2.97
+  fqdn: lion.loseyourip.com
+  userId: nickm
+  script: Third-Worker-Node-ip-97.sh
+targetFile: K3S_Auto_Cluster_Generator_Schedule.txt
