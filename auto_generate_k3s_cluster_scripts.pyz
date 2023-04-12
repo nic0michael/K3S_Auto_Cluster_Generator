@@ -40,7 +40,9 @@ def generatePrimaryMasterNodeScriptPrimary(nickname, ipAddress, fqdn, userId, sc
         f.write('node_name="' + fqdn + '"\n')
 # TO ALLOW NON ROOT ACCESS TO KUBECTL        
         f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init --write-kubeconfig-mode=644\n')    
-#        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init\n')
+#        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init\n\n')
+        f.write('echo "Please run this command and update token in config.yaml"\n')
+        f.write('echo "cat /var/lib/rancher/k3s/server/node-token"\n')
 
 # Added  --write-kubeconfig-mode=644
 def generateOtherMasterNodeScript(nickname, ipAddress, primaryMasterNodeIpAddress, fqdn, userId, script, k3sToken):
