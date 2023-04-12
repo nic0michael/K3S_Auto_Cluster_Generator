@@ -2,6 +2,9 @@
 
 import yaml
 
+# To allow non root access to kubectls commands
+# echo K3S_KUBECNFIG_MODE=\"644\" >> /etc/systemd/system/k3s.service.env
+
 def generateDeleteWorkerNodeScript():
     script="DeleteWorkerNode.sh"
     with open(script, "w") as f:
@@ -20,6 +23,7 @@ def generateDeleteMasterNodeScript():
         f.write("/usr/local/bin/k3s-killall.sh" + "\n")
         f.write("/usr/local/bin/k3s-uninstall.sh" + "\n")   
         
+# Added  --write-kubeconfig-mode=644         
 def generatePrimaryMasterNodeScriptPrimary(nickname, ipAddress, fqdn, userId, script, k3sToken):
     print("generatePrimaryMasterNodeScriptPrimary called  script: "+script)
     with open(script, "w") as f:
@@ -34,8 +38,13 @@ def generatePrimaryMasterNodeScriptPrimary(nickname, ipAddress, fqdn, userId, sc
         f.write("# K3s Token: " + k3sToken + "\n")
         f.write("# \n")                
         f.write('node_name="' + fqdn + '"\n')
-        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init\n')
+# TO ALLOW NON ROOT ACCESS TO KUBECTL        
+        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init --write-kubeconfig-mode=644\n')    
+#        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init\n\n')
+        f.write('echo "Please run this command and update token in config.yaml"\n')
+        f.write('echo "cat /var/lib/rancher/k3s/server/node-token"\n')
 
+# Added  --write-kubeconfig-mode=644
 def generateOtherMasterNodeScript(nickname, ipAddress, primaryMasterNodeIpAddress, fqdn, userId, script, k3sToken):
     print("generateOtherMasterNodeScript called  script: "+script)
     with open(script, "w") as f:
@@ -53,8 +62,13 @@ def generateOtherMasterNodeScript(nickname, ipAddress, primaryMasterNodeIpAddres
         f.write('k3s_token="' + str(k3sToken) + '"\n')
         f.write('k3s_url="https://' + str(primaryMasterNodeIpAddress) + ':6443"\n')
         f.write('node_name="' + str(fqdn) + '"\n')
-        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url}\n\n')
-        
+# TO ALLOW NON ROOT ACCESS TO KUBECTL      
+        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url} --write-kubeconfig-mode=644\n\n')  
+#        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url}\n\n')
+        f.write('echo "Please run this command and update token in config.yaml"\n')
+        f.write('echo "cat /var/lib/rancher/k3s/server/node-token"\n')
+   
+ 
 def generateWorkerNodeScript(nickname, ipAddress, primaryMasterNodeIpAddress, fqdn, userId, script, k3sToken):
     print("generateWorkerNodeScript called  script: "+script)
     with open(script, "w") as f:
@@ -185,6 +199,3 @@ with open(nodes["targetFile"], "w") as f:
         userId3=node["userId"]
         script3=node["script"] 
         generateWorkerNodeScript(nickname3, ipAddress3, primaryMasterNodeIpAddress, fqdn3, userId3, script3, k3sToken3)
-        
-
-
