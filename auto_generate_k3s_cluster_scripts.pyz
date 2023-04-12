@@ -39,8 +39,8 @@ def generatePrimaryMasterNodeScriptPrimary(nickname, ipAddress, fqdn, userId, sc
         f.write("# \n")                
         f.write('node_name="' + fqdn + '"\n')
 # TO ALLOW NON ROOT ACCESS TO KUBECTL        
-#        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} --write-kubeconfig-mode=644 sh -s - server --cluster-init\n')
-        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init\n')
+        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init --write-kubeconfig-mode=644\n')    
+#        f.write('curl -sfL https://get.k3s.io | K3S_NODE_NAME=${node_name} sh -s - server --cluster-init\n')
 
 # Added  --write-kubeconfig-mode=644
 def generateOtherMasterNodeScript(nickname, ipAddress, primaryMasterNodeIpAddress, fqdn, userId, script, k3sToken):
@@ -60,9 +60,9 @@ def generateOtherMasterNodeScript(nickname, ipAddress, primaryMasterNodeIpAddres
         f.write('k3s_token="' + str(k3sToken) + '"\n')
         f.write('k3s_url="https://' + str(primaryMasterNodeIpAddress) + ':6443"\n')
         f.write('node_name="' + str(fqdn) + '"\n')
-# TO ALLOW NON ROOT ACCESS TO KUBECTL        
-#        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} --write-kubeconfig-mode=644 sh -s - server --server ${k3s_url}\n\n')
-        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url}\n\n')
+# TO ALLOW NON ROOT ACCESS TO KUBECTL      
+        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url} --write-kubeconfig-mode=644\n\n')  
+#        f.write('curl -sfL https://get.k3s.io | K3S_TOKEN=${k3s_token} K3S_NODE_NAME=${node_name} sh -s - server --server ${k3s_url}\n\n')
    
  
 def generateWorkerNodeScript(nickname, ipAddress, primaryMasterNodeIpAddress, fqdn, userId, script, k3sToken):
