@@ -91,11 +91,5 @@ you need to use the chmod 775 command to make them executable and then run them 
     └── Third-Worker-Node-ip-97.sh
 
 ```
-## Tools used
 
-### JSON Formatter validator
-https://jsonformatter.curiousconcept.com/
-
-### JSON to YAML Converter
-https://www.json2yaml.com/
 
