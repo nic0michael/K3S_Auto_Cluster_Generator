@@ -1,5 +1,9 @@
 # The K3S-HA Cluster Generator
-This is a flexible Cluster maker program where you control what shell scripts are generated
+This is a flexible Cluster maker program where you control what shell scripts are generated.
+I works with :
+1. Ubuntu Server.
+2. CentOS server 9.
+3. And now Alpine Linux Minimal server
  
 ## You can make the following K3S clusters :
 1. **K3S-HA Cluster** with multiple Master Nodes and Multiple worker Nodes
