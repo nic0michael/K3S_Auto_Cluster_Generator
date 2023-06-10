@@ -5,7 +5,7 @@ I works with :
 2. **CentOS Server 9.**
 3. **And now Alpine Linux Minimal Server.**
 
-**One of the unique features is that the Kubernbetes Cluster Nodes are named by the FQDN (Fully Qualified Domain Name) of the server and not just the server name** \
+**One of the unique features of our approach is that the Kubernbetes Cluster Nodes generated are named by the FQDN (Fully Qualified Domain Name) of the server and not just the server name** \
 We have not seen anyone else do that when creating Kubernetes Clusters
 
 ```
