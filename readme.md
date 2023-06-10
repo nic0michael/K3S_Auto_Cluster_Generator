@@ -5,7 +5,7 @@ I works with :
 2. CentOS server 9.
 3. And now Alpine Linux Minimal server
 
-One of the unique features is that the Kubernbetes nodes are names by the FQDN (Fully Qualified Domain Name) of the server and not just the server name
+**One of the unique features is that the Kubernbetes nodes are names by the FQDN (Fully Qualified Domain Name) of the server and not just the server name**
 ```
 root@upupu:~# kubectl get nodes
 
