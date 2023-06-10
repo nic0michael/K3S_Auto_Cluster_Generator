@@ -46,7 +46,7 @@ chmod 775 auto_generate_k3s_cluster_scripts.pyz
 ## 3. This will generate the Auto Cluster Deployment Schedule
 K3S_Auto_Cluster_Generator_Schedule.txt
 
-## 4. It will generate all the shell scripts to run on all the Node servers
+## 4. It will also generate all the shell scripts to run on all the Node servers
 The names of these shell scripts are specified by you in the config.yaml file.
 
 Currently this will generate the following shell scripts:
