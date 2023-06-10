@@ -2,9 +2,9 @@
 This is a flexible Cluster maker program where you control what shell scripts are generated
  
 ## You can make the following K3S clusters :
-1. K3S-HA Cluster with multiple Master Nodes and Multiple worker Nodes
-2. K3S Cluster with one Master Nodes and Multiple worker Nodes
-3. K3S Minimal Cluster with only a master Node and no Worker Nodes
+1. **K3S-HA Cluster** with multiple Master Nodes and Multiple worker Nodes
+2. **K3S Standard Cluster** with one Master Nodes and Multiple worker Nodes
+3. **K3S Minimal Cluster** with only a master Node and no Worker Nodes
 
 ## This ships as a Python script and a Configuration yaml file
 This is shipped as a Python program as a linux script.
