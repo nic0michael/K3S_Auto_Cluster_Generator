@@ -45,6 +45,52 @@ Currently this will generate the following shell scripts:
 
 you need to use the chmod 775 command to make them executable and then run them each on the appropriate server
 
+## Examples
+```
+.
+├── K3S-Alpine_Cluster
+│   ├── auto_generate_k3s_cluster_scripts.pyz
+│   ├── config.yaml
+│   ├── DeleteMasterNode.sh
+│   ├── delete_me_please.txt
+│   ├── DeleteWorkerNode.sh
+│   ├── First-Worker-Node-ip-95.sh
+│   ├── K3S_Auto_Cluster_Generator_Schedule.txt
+│   └── Primary-Master-Node-ip-93.sh
+├── K3S-HA_Cluster
+│   ├── auto_generate_k3s_cluster_scripts.pyz
+│   ├── config.yaml
+│   ├── DeleteMasterNode.sh
+│   ├── DeleteWorkerNode.sh
+│   ├── First-Worker-Node-ip-93.sh
+│   ├── K3S_Auto_Cluster_Generator_Schedule.txt
+│   ├── Primary-Master-Node-ip-89.sh
+│   ├── Second-Master-Node-ip-88.sh
+│   ├── Second-Worker-Node-ip-95.sh
+│   ├── Third-Master-Node-ip-4.sh
+│   └── Third-Worker-Node-ip-97.sh
+├── K3S-Minimal_system
+│   ├── auto_generate_k3s_cluster_scripts.pyz
+│   ├── config.yaml
+│   ├── DeleteMasterNode.sh
+│   ├── DeleteWorkerNode.sh
+│   ├── dummyscript
+│   ├── First-Worker-Node-ip-93.sh
+│   ├── K3S_Auto_Cluster_Generator_Schedule.txt
+│   └── Primary-Master-Node-ip-89.sh
+└── K3S-Standard_Cluster
+    ├── auto_generate_k3s_cluster_scripts.pyz
+    ├── config.yaml
+    ├── DeleteMasterNode.sh
+    ├── DeleteWorkerNode.sh
+    ├── dummyscript
+    ├── First-Worker-Node-ip-93.sh
+    ├── K3S_Auto_Cluster_Generator_Schedule.txt
+    ├── Primary-Master-Node-ip-89.sh
+    ├── Second-Worker-Node-ip-95.sh
+    └── Third-Worker-Node-ip-97.sh
+
+```
 ## Tools used
 
 ### JSON Formatter validator
