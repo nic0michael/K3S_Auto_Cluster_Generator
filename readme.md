@@ -2,8 +2,8 @@
 This is a flexible Cluster maker program where you control what shell scripts are generated.
 I works with :
 1. **Ubuntu Server.**
-2. **CentOS server 9.**
-3. **And now Alpine Linux Minimal server.**
+2. **CentOS Server 9.**
+3. **And now Alpine Linux Minimal Server.**
 
 **One of the unique features is that the Kubernbetes Cluster Nodes are named by the FQDN (Fully Qualified Domain Name) of the server and not just the server name** \
 We have not seen anyone else do that when creating Kubernetes Clusters
