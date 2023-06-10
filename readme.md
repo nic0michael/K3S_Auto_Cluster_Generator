@@ -4,6 +4,17 @@ I works with :
 1. Ubuntu Server.
 2. CentOS server 9.
 3. And now Alpine Linux Minimal server
+
+One of the unique features is that the Kubernbetes nodes are names by the FQDN (Fully Qualified Domain Name) of the server and not just the server name
+```
+root@upupu:~# kubectl get nodes
+
+NAME                     STATUS   ROLES                       AGE   VERSION
+kudu.loseyourip.com      Ready    <none>                      71d   v1.26.3+k3s1
+leopard.loseyourip.com   Ready    <none>                      71d   v1.26.3+k3s1
+lion.loseyourip.com      Ready    <none>                      71d   v1.26.3+k3s1
+upupu.loseyourip.com     Ready    control-plane,etcd,master   72d   v1.26.3+k3s1
+```
  
 ## You can make the following K3S clusters :
 1. **K3S-HA Cluster** with multiple Master Nodes and Multiple worker Nodes
