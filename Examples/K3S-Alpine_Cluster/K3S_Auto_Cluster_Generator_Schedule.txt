@@ -1,7 +1,7 @@
 #######################
 # Primary Master Node #
 #######################
-ssh root@10.154.2.93
+ssh nehemoth@192.168.1.81
 sudo su -
 
 # IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
@@ -54,7 +54,7 @@ Run this script now
 #######################
 # First Worker Node #
 #######################
-ssh nickm@10.154.2.95
+ssh nehemoth@192.168.1.83
 sudo su -
 
 # IF YOUR SERVER IS A WORKER NODE RUN THIS COMMAND
