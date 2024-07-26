@@ -1,9 +1,15 @@
 # The K3S-HA Cluster Generator
-This is a flexible Cluster maker program where you control what shell scripts are generated.
-I works with :
+This is a flexible Cluster maker program where you control what shell scripts are generated. \
+
+This works with :
 1. **Ubuntu Server.**
 2. **CentOS Server 9.**
-3. **And now Alpine Linux Minimal Server.**
+3. **And now Alpine Linux Minimal Server.**https://youtu.be/biI2VAsqStE
+
+## Instruction Video
+For instructions on how to use this project please watch this video:
+[Watch this video](https://youtu.be/biI2VAsqStE)
+   
 
 **One of the unique features of our approach is that the Kubernbetes Cluster Nodes generated are named by the FQDN (Fully Qualified Domain Name) of the server and not just the server name** \
 We have not seen anyone else do that when creating Kubernetes Clusters
