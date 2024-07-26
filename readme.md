@@ -7,7 +7,7 @@ This works with :
 3. **And now Alpine Linux Minimal Server.** **https://youtu.be/biI2VAsqStE**
 
 ## Instructional Video
-The best way to find out how to use this project is to watch this video:
+**The best way to find out how to use this project is to watch this video:**
 [Please watch this video](https://youtu.be/biI2VAsqStE)
    
 ## Features
