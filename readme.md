@@ -10,7 +10,7 @@ This works with :
 For instructions on how to use this project please watch this video:
 [Watch this video](https://youtu.be/biI2VAsqStE)
    
-
+## Specifications
 **One of the unique features of our approach is that the Kubernbetes Cluster Nodes generated are named by the FQDN (Fully Qualified Domain Name) of the server and not just the server name** \
 We have not seen anyone else do that when creating Kubernetes Clusters
 
