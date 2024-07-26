@@ -3,8 +3,8 @@ This is a flexible Cluster maker program where you control what shell scripts ar
 
 This works with :
 1. **Ubuntu Server.**
-2. **CentOS Server 9.**
-3. **And now Alpine Linux Minimal Server.**https://youtu.be/biI2VAsqStE**
+2. **Rocky Linux & CentOS Server 9.**
+3. **And now Alpine Linux Minimal Server.** **https://youtu.be/biI2VAsqStE**
 
 ## Instructional Video
 The best way to find out how to use this project is to watch this video:
