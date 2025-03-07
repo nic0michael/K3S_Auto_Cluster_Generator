@@ -1,0 +1,26 @@
+---
+primaryNode:
+  nickname: Primary Master Node
+  fqdn: primary-master-node
+  script: Primary-Master-Node.sh
+otherMasterNodes:
+- nickname: Second Master Node
+  fqdn: second-master-node
+  script: Second-Master-Node.sh
+- nickname: Third Master Node
+  fqdn: third-master-node
+  script: Third-Master-Node.sh
+workernodes:
+- nickname: First Worker Node
+  fqdn: first-worker-node
+  script: First-Worker-Node.sh
+- nickname: Second Worker Node
+  fqdn: second-worker-node
+  script: Second-Worker-Node.sh
+- nickname: Third Worker Node
+  fqdn: third-worker-node
+  script: Third-Worker-Node.sh
+- nickname: Fourth Worker Node
+  fqdn: forth-worker-node
+  script: Fourth-Worker-Node.sh
+targetFile: K3S_Auto_Cluster_Generator_Schedule.txt
