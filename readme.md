@@ -6,6 +6,10 @@ This works with :
 2. **Rocky Linux & CentOS Server 9.**
 3. **And now Alpine Linux Minimal Server.** **https://youtu.be/biI2VAsqStE**
 
+## Quick Start Instrustions
+**[Read the Quick Start Instrustions if you want something small to learn Kubernetes](https://github.com/nic0michael/K3S_Auto_Cluster_Generator/tree/master/Small-Cluster)**
+
+
 ## Instructional Video
 **The best way to find out how to use this project is to watch this video:**
 [Please watch this video](https://youtu.be/biI2VAsqStE)
