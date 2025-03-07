@@ -1,7 +1,7 @@
 # The Quick Start Instructions
 This will create you a two node Kubernetes Cluster with one Master Node and one Worker Node
 
-This is the simplest way to use this tool
+This is the simplest way to use this tool using only two Shell Scripts
 
 This works with :
 1. **Ubuntu Server.**
