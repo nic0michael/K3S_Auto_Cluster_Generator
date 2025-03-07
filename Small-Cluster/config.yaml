@@ -1,0 +1,21 @@
+---
+primaryNode:
+  nickname: Primary Master Node
+  ipAddress: 10.154.2.85
+  fqdn: master-node
+  userId: nickm
+  script: Master-Node.sh
+  k3sToken: K105db82e39a8ec3a05de569a7a2e4ffdf2fa3c1db21f87fad5b22e764af61d0d96::server:e54cb4ab0d4026b645c8156477ac7220
+otherMasterNodes:
+- nickname: dummynickname
+  ipAddress: dummyipAddress
+  fqdn: dummyfqdn
+  userId: dummyuserId
+  script: Delete-me-please
+workernodes:
+- nickname: First Worker Node
+  ipAddress: 10.154.2.91
+  fqdn: worker-node
+  userId: nickm
+  script: Worker-Node.sh
+targetFile: K3S_Auto_Cluster_Generator_Schedule.txt
