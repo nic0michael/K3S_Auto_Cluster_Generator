@@ -28,7 +28,7 @@ upupu.loseyourip.com     Ready    control-plane,etcd,master   72d   v1.26.3+k3s1
 1. **K3S-HA Cluster** with multiple Master Nodes and Multiple worker Nodes
 2. **K3S Standard Cluster** with one Master Nodes and Multiple worker Nodes
 3. **K3S Minimal Cluster** with only a master Node and no Worker Nodes
-4. **Small-Cluster** with a Master node and a Worker node(to learn Kubernetes)
+4. **[Small-Cluster](https://github.com/nic0michael/K3S_Auto_Cluster_Generator/tree/master/Small-Cluster)** with a Master node and a Worker node(to learn Kubernetes)
 
 ## This ships as a Python script and a Configuration yaml file
 This is shipped as a Python program as a linux script.
