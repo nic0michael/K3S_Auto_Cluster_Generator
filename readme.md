@@ -7,7 +7,7 @@ This works with :
 3. **And now Alpine Linux Minimal Server.** **https://youtu.be/biI2VAsqStE**
 
 ## Quick Start Instrustions
-**[Read the Quick Start Instrustions if you want something small to learn Kubernetes](https://github.com/nic0michael/K3S_Auto_Cluster_Generator/tree/master/Small-Cluster)**
+**[Read the Quick Start Instrustions if you want something small to learn Kubernetes with](https://github.com/nic0michael/K3S_Auto_Cluster_Generator/tree/master/Small-Cluster)**
 
 
 ## Instructional Video
