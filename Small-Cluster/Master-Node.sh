@@ -3,7 +3,7 @@
 #######################
 # Primary Master Node #
 #######################
-# IP Address: 10.154.2.85
+# IP Address: 10.154.2.41
 # FQDN: master-node
 # User ID: nickm
 # K3s Token: K105db82e39a8ec3a05de569a7a2e4ffdf2fa3c1db21f87fad5b22e764af61d0d96::server:e54cb4ab0d4026b645c8156477ac7220
