@@ -32,7 +32,10 @@ mkdir /opt/k3s-master
 
 cd /opt/k3s-master/
 
-wget https://github.com/nic0michael/K3S_Auto_Cluster_Generator/blob/master/Small-Cluster/Master-Node.sh
+#open this in browser  https://github.com/nic0michael/K3S_Auto_Cluster_Generator/blob/master/Small-Cluster/Master-Node.sh
+
+# paste in editor here :
+nano Master-Node.sh
 
 chmod 775 Master-Node.sh
 
@@ -64,7 +67,9 @@ mkdir /opt/k3s-worker
 
 cd /opt/k3s-worker/
 
-wget https://github.com/nic0michael/K3S_Auto_Cluster_Generator/blob/master/Small-Cluster/Worker-Node.sh
+# open in browser :  https://github.com/nic0michael/K3S_Auto_Cluster_Generator/blob/master/Small-Cluster/Worker-Node.sh
+# paste in editor here :
+nano Worker-Node.sh
 
 # We will edit this script and change these values with those of the Master Node Server: 
 k3s_token="K105db82e39a8ec3a05de569a7a2e4ffdf2fa3c1db21f87fad5b22e764af61d0d96::server:e54cb4ab0d4026b645c8156477ac7220"
