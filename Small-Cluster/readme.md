@@ -76,7 +76,7 @@ nano Worker-Node.sh
 chmod 775 Worker-Node.sh
 
 # To create the Worker Node in the K3S Kubernetes Cluster
-./Master-Node.sh
+./Worker-Node.sh
 
 # This takes 3 to 4 minutes
 ```
