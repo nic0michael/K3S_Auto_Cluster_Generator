@@ -1,5 +1,6 @@
 # The K3S-HA Cluster Generator
-This is a flexible Cluster maker program where you control what shell scripts are generated. \
+This is a flexible Kubernetes cluster-making program where you control what shell scripts are generated. \
+by simply editing a **config.yaml** file.
 
 This works with :
 1. **Ubuntu Server.**
@@ -7,9 +8,9 @@ This works with :
 3. **And now Alpine Linux Minimal Server.** **https://youtu.be/biI2VAsqStE**
 
 ## License
-This is true Open Source software, licensed under GNU General Public License version 3 (GPLv3)
+This is true Open-source software, licensed under the GNU General Public License version 3 (GPLv3)
 
-## Quick Start Instrustions
+## Quick Start Instructions
 **[Read the Quick Start Instrustions if you want something small to learn Kubernetes with](https://github.com/nic0michael/K3S_Auto_Cluster_Generator/tree/master/Small-Cluster)**
 
 
