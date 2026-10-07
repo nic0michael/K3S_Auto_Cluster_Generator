@@ -8,7 +8,19 @@ This works with :
 3. **And now Alpine Linux Minimal Server.** **https://youtu.be/biI2VAsqStE**
 
 ## License
-This is true Open-source software, licensed under the GNU General Public License version 3 (GPLv3)
+This is true Open-source software, licensed under the GNU General Public License version 3 (GPLv3
+
+## Software License GPL3
+This open-source projects are licensed under the **GNU General Public License version 3 (GPLv3)**.
+
+* **Private/Internal Use:** You may use and modify the software for personal or internal organisational use without publishing your changes.
+* **Distribution:** If you distribute the software, including modified versions, you must provide the corresponding source code under the GPLv3.
+* **Upstream:** Where practical, improvements and fixes can be contributed back to the original project, helping to benefit the wider open-source community.
+* **Commercial Use:** GPLv3 permits commercial use and distribution, provided the GPLv3 requirements are followed.
+
+For the complete terms, see the **[GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html?utm_source=chatgpt.com)**. \
+([gcc.gnu.org][1])[1]: https://gcc.gnu.org/onlinedocs/libstdc%2B%2B/manual/appendix_gpl.html?utm_source=chatgpt.com "Appendix D.  GNU General Public License version 3"
+
 
 ## Quick Start Instructions
 **[Read the Quick Start Instrustions if you want something small to learn Kubernetes with](https://github.com/nic0michael/K3S_Auto_Cluster_Generator/tree/master/Small-Cluster)**
