@@ -16,7 +16,7 @@ This open-source projects are licensed under the **GNU General Public License ve
 * **Commercial Use:** GPLv3 permits commercial use and distribution, provided the GPLv3 requirements are followed.
 
 For the complete terms, see the **[GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html?utm_source=chatgpt.com)**. \
-([gcc.gnu.org][1])[1]: https://gcc.gnu.org/onlinedocs/libstdc%2B%2B/manual/appendix_gpl.html?utm_source=chatgpt.com "Appendix D.  GNU General Public License version 3"
+[gcc.gnu.org](https://gcc.gnu.org/onlinedocs/libstdc%2B%2B/manual/appendix_gpl.html?utm_source=chatgpt.com) "Appendix D.  GNU General Public License version 3"
 
 
 ## Quick Start Instructions
