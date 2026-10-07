@@ -7,9 +7,6 @@ This works with :
 2. **Rocky Linux & CentOS Server 9.**
 3. **And now Alpine Linux Minimal Server.** **https://youtu.be/biI2VAsqStE**
 
-## License
-This is true Open-source software, licensed under the GNU General Public License version 3 (GPLv3
-
 ## Software License GPL3
 This open-source projects are licensed under the **GNU General Public License version 3 (GPLv3)**.
 
